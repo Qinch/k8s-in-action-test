@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testqc 
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: allen
+      labels:
+        app: testing
+    spec:
+      containers:
+      - image: qinchaowhut/allen:v1
+        name: nodejs
+        imagePullPolicy: IfNotPresent
+  selector:
+    matchLabels:
+      app: testing
